@@ -1,0 +1,44 @@
+html, body{
+    height: 100%;
+    background: #f7f7ff;
+}
+body{
+    padding-bottom: 20px;
+    overflow: hidden !important; 
+}
+#inbox{
+    border: 1px solid #e7e7e7;
+    margin: 20px;
+    background: #ffffff;
+}
+
+.grid-col-2 {
+    display: grid;
+    grid-template-columns: 350px auto;
+}
+.grid-col-2 .col-left{
+    border-right: 1px solid #e7e7e7;
+    height: 100%;
+}
+
+.grid-col-2 .col-left .head{
+    border-bottom: 1px solid #e7e7e7;
+    padding: 15px;
+}
+
+.grid-col-2 .col-left .contact-list{
+    padding: 0 15px;
+    height: 850px;
+    overflow: hidden !important;
+    overflow-y: auto !important;
+}
+
+.center-xy{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.position-relative{ position: relative; }
