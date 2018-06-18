@@ -71,7 +71,7 @@
                     <!-- Inbox Search Form -->
                     <div v-bind:class="{ hidden: isActive }">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search for...">
+                            <input type="text" class="form-control" placeholder="Search for..." v-model="search">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="button">
                                     <i class="glyphicon glyphicon-search"></i>
@@ -91,7 +91,7 @@
                 <div class="contact-list">
         
                     <ul class="list-unstyled">
-                        <li v-for="contactUser in contactUsers">
+                        <li v-for="(contactUser, userKey) in contactUsers" @click.prevent="showMessageHistory(userKey)">
                             <div class="media">
                                 <a class="pull-left" href="#">
                                     <img class="media-object" :src="contactUser.avatar" alt="Image">
@@ -115,12 +115,118 @@
         
             <!-- Inbox Chat Histories -->
             <div class="col-right position-relative">
-                <div class="center-xy">
-        
-                    <img src="assets/img/bubble-green.svg" alt="">
-        
-                    <h3>No Conversations Selected</h3>
+
+                <!-- Empty Conversation Wrapper -->
+                <div class="empty-conversation-wrapper hidden">
+                    <div class="center-xy">
+                        <img src="assets/img/bubble-green.svg" alt="">
+                        <h3>No Conversations Selected</h3>
+                        <p class="text-muted">Try selecting a conversation or searching for someone specific.</p>
+                    </div>
                 </div>
+                <!-- Empty Conversation Wrapper -->
+
+                <!-- Conversation History Wrapper -->
+                <div class="conversation-wrapper">
+                    
+                    <!-- Conversation Header -->
+                    <div class="conversation-header">
+                        <h4 class="username">
+                            <span class="glyphicon glyphicon-user online"></span>
+                            <span>User Name</span>
+
+                            <div class="dropdown pull-right">
+                                <button type="button" class="btn btn-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="glyphicon glyphicon-option-horizontal"></i>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                    <li><a href="#">Star</a></li>
+                                    <li><a href="#">Mark as Unread</a></li>
+                                    <li><a href="#">Archive</a></li>
+                                    <li><a href="#">Delete</a></li>
+                                </ul>
+                            </div>
+                        </h4>
+                        
+                        <span class="text-sm text-muted">Last seen 4d ago | Local time 9:36 AM</span>
+
+                    </div>
+                    <!-- End Conversation Header -->
+                    
+                    <!-- Chat Layout -->
+                    <div class="grid-inner-container">
+                    
+                        <div class="chat-box position-relative">
+                            <div class="chat-histories">
+                                
+                                <ul class="list-unstyled">
+                                    <li class="message">
+                                        
+                                        <div class="media">
+                                            <a class="pull-left" href="#">
+                                                <img class="media-object" src="http://via.placeholder.com/50x50" alt="Image">
+                                            </a>
+                                            <div class="media-body">
+                                                <h5 class="media-heading">User 1 <small>Nov 26, 2:51PM</small></h5>
+                                                <p>Can you quote me how much it would be for you to convert the site to wordpress instead?</p>
+                                            </div>
+                                        </div>
+                                        
+                                    </li>
+                                    
+                                    <li class="message">
+                                    
+                                        <div class="media">
+                                            <a class="pull-left" href="#">
+                                                <img class="media-object" src="http://via.placeholder.com/50x50" alt="Image">
+                                            </a>
+                                            <div class="media-body">
+                                                <h5 class="media-heading">User 2
+                                                    <small>Nov 26, 2:51PM</small>
+                                                </h5>
+                                                <p>Thanks again for contacting with me. If i make this for wordpress i have to make çustom theme. So for that my budget will
+                                                be $70</p>
+                                            </div>
+                                        </div>
+                                    
+                                    </li>
+                                </ul>
+
+                            </div>
+
+                            <div class="chat-form">
+                                <form action="#" method="post" enctype="multipart/form-data" class="chat-form">
+                                    
+                                    <div class="form-group">
+                                        <textarea name="message" v-model="message" cols="30" rows="2" placeholder="Write your message" class="form-control no-radius"></textarea>
+                                    </div>
+
+                                    <div class="form-group clearfix">
+
+                                        <div class="pull-left">
+                                            <label class="btn btn-default btn-flat">
+                                                <i class="glyphicon glyphicon-paperclip"></i>
+                                                <input type="file" class="hidden">
+                                            </label>
+                                        </div>
+
+                                        <div class="pull-right">
+                                            <button type="submit" class="btn btn-success">Send</button>
+                                        </div>
+
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    
+                        <div class="user-details">Chat Details</div>
+                    
+                    </div>
+                    <!-- End Chat Layout -->
+
+                </div>
+                <!-- Conversation History Wrapper -->
             </div>
             <!-- End Inbox Chat Histories -->
         

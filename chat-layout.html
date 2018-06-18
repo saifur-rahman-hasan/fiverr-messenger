@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+
+    <style>
+        html, body{
+            height: 100%;
+            background: #f7f7ff;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 300px auto;
+            margin: 20px 0;
+            height: 96vh;
+            background: #FFF;
+            border: 1px solid #e7e7e7;
+        }
+        
+        .grid-container > .contact-list{
+            border-right: 1px solid #e7e7e7;
+        }
+
+        .grid-container .head{
+            border-bottom: 1px solid #e7e7e7;
+            padding: 15px;
+        }
+
+        .grid-inner-container {
+            display: grid;
+            grid-template-columns: auto 300px;
+        }
+
+        .grid-inner-container .chat-box{
+            border-right: 1px solid #e7e7e7;
+            height: 90.5vh;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+
+        <div class="grid-container">
+
+            <div class="contact-list">
+                <div class="head">
+                    Contact List Head
+                </div>
+            </div>
+
+            <div class="chat-layout">
+                
+                <div class="head">Chat Header</div>
+
+                <div class="grid-inner-container">
+
+                    <div class="chat-box">
+                        <h3>Chat Box</h3>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere non vitae nisi cupiditate est autem blanditiis eos nulla quod id dolores ea amet deleniti, iusto consectetur vero. Nihil, voluptatibus quidem.
+                        </p>
+                    </div>
+
+                    <div class="user-details">Chat Details</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

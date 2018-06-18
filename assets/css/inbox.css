@@ -39,8 +39,52 @@ body{
     transform: translate(-50%, -50%);
     text-align: center;
 }
-
 .position-relative{ position: relative; }
 
-.contact-list > ul > li{ padding: 15px; }
+.contact-list > ul > li{ padding: 15px; border-bottom: 1px solid #e7e7e7; }
 .contact-list > ul > li:hover{ background: #eee; cursor: pointer; }
+
+.conversation-header{
+    border-bottom: 1px solid #e7e7e7;
+    padding: 11px 15px;
+}
+.conversation-header .username{
+    margin: 0;
+}
+.online{ color: #00b22d !important; }
+.text-sm{ font-size: 11px; }
+
+.about-user-col{ height: 100%; border-left: 1px solid #e7e7e7; }
+.about-user-col .thumbnail{ border: 0; }
+
+.grid-inner-container {
+    display: grid;
+    grid-template-columns: auto 300px;
+}
+
+.grid-inner-container .chat-box{
+    border-right: 1px solid #e7e7e7;
+    height: 90.5vh;
+}
+
+.chat-form{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.btn-flat{ border: 0; }
+.no-radius{ border-radius: 0; }
+
+.chat-histories{
+    height: calc(100% - 130px );
+    overflow: hidden;
+    overflow-y: auto !important;
+}
+
+.chat-histories .message{
+    padding: 15px;   
+}
+.chat-histories .message:hover{ background: #eee; }
