@@ -27,7 +27,6 @@ body{
 }
 
 .grid-col-2 .col-left .contact-list{
-    padding: 0 15px;
     height: 850px;
     overflow: hidden !important;
     overflow-y: auto !important;
@@ -42,3 +41,6 @@ body{
 }
 
 .position-relative{ position: relative; }
+
+.contact-list > ul > li{ padding: 15px; }
+.contact-list > ul > li:hover{ background: #eee; cursor: pointer; }

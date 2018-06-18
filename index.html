@@ -7,28 +7,30 @@
     <title>Fiverr Chat Inbox</title>
 
     <!-- Latest compiled and minified Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
 
     <!-- Messenger Inbox -->
-    <link rel="stylesheet" href="css/inbox.css">
+    <link rel="stylesheet" href="assets/css/inbox.css">
+
 </head>
 <body>
-    
+
     <div class="container">
 
         <!-- Inbox Layout -->
         <div id="inbox" class="grid-col-2">
-
+        
             <!-- Inbox Filter, Search and User Lists -->
             <div class="col-left position-relative">
-                
+        
                 <!-- Filter and Search -->
                 <div class="head">
-                    
+        
                     <!-- Inbox Filter -->
-                    <div id="inbox-filter" class="clearfix">
+                    <div v-bind:class="{ hidden: !isActive, clearfix: true  }">
                         <div class="dropdown pull-left">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="true">
                                 All Conversations
                                 <span class="caret"></span>
                             </button>
@@ -58,81 +60,82 @@
                                 </li>
                             </ul>
                         </div>
-
-                        <button id="btn-search-toggle" class="btn btn-link pull-right">
+        
+                        <button class="btn btn-link pull-right" @click.prevent="toggleActiveClass()">
                             <i class="glyphicon glyphicon-search"></i>
                         </button>
-
+        
                     </div>
                     <!-- End Inbox Filter -->
-
+        
                     <!-- Inbox Search Form -->
-                    <div id="inbox-search-form" class="hidden">
+                    <div v-bind:class="{ hidden: isActive }">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Search for...">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="button">
                                     <i class="glyphicon glyphicon-search"></i>
                                 </button>
-                                <button class="btn btn-default" type="button">
+                                <button class="btn btn-default" type="button" @click.prevent="toggleActiveClass()">
                                     <i class="glyphicon glyphicon-remove"></i>
                                 </button>
                             </span>
                         </div>
                     </div>
                     <!-- End Inbox Search Form -->
-
+        
                 </div>
                 <!-- End Filter and Search -->
-                
+        
                 <!-- Contact List -->
                 <div class="contact-list">
-
+        
                     <ul class="list-unstyled">
-                        <li>
-                            <a href="#">
-                                <div class="media">
-                                    <a class="pull-left" href="#">
-                                        <img class="media-object" src="http://via.placeholder.com/50x50" alt="Image">
-                                    </a>
-                                    <div class="media-body">
-                                        <h5 class="media-heading">
-                                            <a href="#">User Name</a>
-                                            <span class="text-muted pull-right">2 min ago</span>
-                                        </h5>
-                                        <p>Last Message goes here...</p>
-                                    </div>
+                        <li v-for="contactUser in contactUsers">
+                            <div class="media">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object" :src="contactUser.avatar" alt="Image">
+                                </a>
+                                <div class="media-body">
+                                    <h5 class="media-heading">
+                                        <a href="#">{{ contactUser.name }}</a>
+                                        <span class="text-muted pull-right">{{ contactUser.last_message_time }}</span>
+                                    </h5>
+                                    <p>{{ contactUser.last_message }}</p>
                                 </div>
-                            </a>
+                            </div>
                         </li>
                     </ul>
-
+        
                 </div>
                 <!-- End Contact List -->
-                
+        
             </div>
             <!-- End Inbox Filter, Search and User Lists -->
-
+        
             <!-- Inbox Chat Histories -->
             <div class="col-right position-relative">
                 <div class="center-xy">
-
-                    <img src="img/bubble-green.svg" alt="">
-
+        
+                    <img src="assets/img/bubble-green.svg" alt="">
+        
                     <h3>No Conversations Selected</h3>
                 </div>
             </div>
             <!-- End Inbox Chat Histories -->
-
+        
         </div>
         <!-- End Inbox Layout -->
 
     </div>
 
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <!-- jQuery, Bootstrap JS, Vue JS -->
+    <script src="assets/vendor/jQuery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/vendor/vue/vue.js"></script>
 
-    <!-- Latest compiled and minified Bootstrap JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Fiverr Inbox Script -->
+    <script src="assets/js/inbox.js"></script>
+
 </body>
 </html>
